@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Penyimpan Nama</string>
     <string name="teks_input">Masukkan Nama</string>
+    <string name="message">Halo! Aplikasi ini dibuat oleh Reckordp</string>
+    <string name="title_message">App by Reckordp</string>
+    <string name="lebih_lanjut">Lebih Lanjut</string>
 </resources>

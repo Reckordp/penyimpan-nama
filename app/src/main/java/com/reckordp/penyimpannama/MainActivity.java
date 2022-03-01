@@ -3,6 +3,9 @@ package com.reckordp.penyimpannama;
 import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity {
 
+    public String GITHUB_PROFILE = "https://github.com/Reckordp";
     private final String FILE_NAMA = "NAME_SAVE.reck";
     private final String TEKS_MENYAPA = "HALO, ";
     private final String AKHIRAN_SAPA = "!";
@@ -66,6 +70,20 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             });
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AlertDialog.Builder pembuat = new AlertDialog.Builder(this);
+        pembuat.setMessage(R.string.message);
+        pembuat.setTitle(R.string.title_message);
+        pembuat.setPositiveButton(android.R.string.ok, (dialog, which) -> {});
+        pembuat.setNegativeButton(R.string.lebih_lanjut,
+                (dialog, which) -> startActivity(
+                        new Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_PROFILE))
+                ));
+        pembuat.show();
     }
 
     protected void namaDitemukan(String nama) {
